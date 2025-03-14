@@ -1,4 +1,3 @@
-// app/layout.tsx
 'use client'; // Mark this as a Client Component
 
 import { Geist, Geist_Mono } from "next/font/google";
@@ -30,6 +29,15 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>
+          🛒 PicknPayz - Best Online Shopping Store in Pakistan | Fast Delivery & Great Deals
+        </title>
+        <meta
+          name="description"
+          content="Shop online at PicknPayz, Pakistan's top eCommerce store! Get the best deals on electronics, fashion, home essentials, and more. Enjoy fast delivery, secure payments, and top-quality products at unbeatable prices. 🛍️✨"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
