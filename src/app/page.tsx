@@ -12,9 +12,6 @@ import {
   CreditCard,
   Truck,
   Mail,
-  Instagram,
-  Twitter,
-  Facebook,
   Heart,
   Tag,
 } from "lucide-react";
