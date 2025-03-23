@@ -473,7 +473,7 @@ export default function Home() {
         {/* WhatsApp Floating Icon */}
         <div className="fixed bottom-3 right-6 z-50">
           <Link
-            href="https://wa.me/+923128091650" // Replace with your WhatsApp number
+            href="https://wa.me/923128091650" // Replace with your WhatsApp number
             target="_blank"
             rel="noopener noreferrer"
             className="text-white p-4 rounded-full transition-all duration-300 transform hover:scale-110"
