@@ -4,7 +4,6 @@ import nodemailer from "nodemailer";
 
 export async function sendMail(formData: FormData) {
   const email = formData.get("email") as string;
-  console.log(email, "mail");
 
   if (!email) {
     return { success: false, error: "Please fill out all fields" };
@@ -78,7 +77,6 @@ export async function sendMail(formData: FormData) {
       from: process.env.SMTP_USER,
       to: email,
       subject: "PicknPayz - Online Store",
-      // text: `Email: ${email}\nMessage: Hellow`
       cc: process.env.SMTP_USER,
       html: htmlContent,
     });

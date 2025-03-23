@@ -15,7 +15,7 @@ import {
   Heart,
   Tag,
 } from "lucide-react";
-import { FaFacebookSquare } from "react-icons/fa";
+import { FaFacebookSquare, FaWhatsapp } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { AiFillTikTok } from "react-icons/ai";
 import { sendMail } from "./actions";
@@ -102,7 +102,7 @@ export default function Home() {
       setEmail("");
       setLoading(false);
     } else {
-      console.log(res?.error);
+      // console.log(res?.error);
     }
   };
 
@@ -425,7 +425,15 @@ export default function Home() {
                     (Icon, i) => (
                       <Link
                         key={i}
-                        href={i === 0 ? "facebook" : i === 1 ? "instagram" : i === 2 ? "tiktok" : ""}
+                        href={
+                          i === 0
+                            ? "https://www.facebook.com/share/1ENz8QFV3x/"
+                            : i === 1
+                            ? "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=xkjjdjr"
+                            : i === 2
+                            ? "https://www.tiktok.com/@picknpayz?_t=ZS-8uhB7YQAwzN&_r=1"
+                            : ""
+                        }
                         className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors"
                       >
                         <Icon className="h-5 w-5 text-white" />
@@ -434,14 +442,22 @@ export default function Home() {
                     )
                   )}
                 </div>
-                <div className="flex items-center text-white">
-                  <Mail className="h-5 w-5 mr-2" />
-                  <a
-                    href="mailto:picknpayz.pk@gmail.com"
-                    className="hover:underline"
-                  >
-                    picknpayz.pk@gmail.com
-                  </a>
+                <div className="flex flex-col items-start gap-2">
+                  <div className="flex items-center text-white">
+                    <Mail className="h-5 w-5 mr-2" />
+                    <a
+                      href="mailto:picknpayz.pk@gmail.com"
+                      className="hover:underline"
+                    >
+                      picknpayz.pk@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center text-white">
+                    <FaWhatsapp className="h-5 w-5 mr-2" />
+                    <a href="tel:+923128091650" className="hover:underline">
+                      0312-8091650
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -453,6 +469,18 @@ export default function Home() {
             </div>
           </div>
         </footer>
+
+        {/* WhatsApp Floating Icon */}
+        <div className="fixed bottom-3 right-6 z-50">
+          <Link
+            href="https://wa.me/+923128091650" // Replace with your WhatsApp number
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white p-4 rounded-full transition-all duration-300 transform hover:scale-110"
+          >
+            <FaWhatsapp className="h-8 w-8 text-[green]" />
+          </Link>
+        </div>
       </div>
 
       {/* CSS for animations */}
@@ -486,6 +514,24 @@ export default function Home() {
   );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // "use client";
 
 // import React, { useState, useEffect } from "react";
@@ -500,26 +546,31 @@ export default function Home() {
 //   CreditCard,
 //   Truck,
 //   Mail,
-//   Instagram,
-//   Twitter,
-//   Facebook,
 //   Heart,
 //   Tag,
 // } from "lucide-react";
+// import { FaFacebookSquare, FaWhatsapp } from "react-icons/fa";
+// import { RiInstagramFill } from "react-icons/ri";
+// import { AiFillTikTok } from "react-icons/ai";
 // import { sendMail } from "./actions";
+// import Link from "next/link";
 
 // export default function Home() {
 //   const [email, setEmail] = useState("");
 //   const [loading, setLoading] = useState(false);
 //   const [submitted, setSubmitted] = useState(false);
 //   const [timeLeft, setTimeLeft] = useState({
-//     days: 30,
+//     days: 0,
 //     hours: 0,
 //     minutes: 0,
 //     seconds: 0,
 //   });
 //   const [iconStyles, setIconStyles] = useState<Array<React.CSSProperties>>([]);
 //   const [isMounted, setIsMounted] = useState(false);
+
+//   // Define start and end dates
+//   const startDate = new Date("2023-10-01T00:00:00"); // Replace with your start date
+//   const endDate = new Date("2025-03-31T23:59:59"); // Replace with your end date
 
 //   // Generate random icon styles only on the client side
 //   useEffect(() => {
@@ -539,7 +590,9 @@ export default function Home() {
 //         top: `${Math.random() * 100}%`,
 //         left: `${Math.random() * 100}%`,
 //         transform: `scale(${Math.random() * 0.5 + 0.5})`,
-//         animation: `float-icon ${Math.random() * 20 + 15}s infinite ease-in-out`,
+//         animation: `float-icon ${
+//           Math.random() * 20 + 15
+//         }s infinite ease-in-out`,
 //         animationDelay: `${Math.random() * 5}s`,
 //       }))
 //     );
@@ -548,40 +601,42 @@ export default function Home() {
 
 //   // Countdown timer logic
 //   useEffect(() => {
+//     const calculateTimeLeft = () => {
+//       const now = new Date();
+//       const difference = endDate.getTime() - now.getTime();
+
+//       if (difference > 0) {
+//         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+//         const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+//         const minutes = Math.floor((difference / 1000 / 60) % 60);
+//         const seconds = Math.floor((difference / 1000) % 60);
+
+//         setTimeLeft({ days, hours, minutes, seconds });
+//       } else {
+//         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+//       }
+//     };
+
 //     const timer = setInterval(() => {
-//       setTimeLeft((prev) => {
-//         const { days, hours, minutes, seconds } = prev;
-//         if (seconds > 0) {
-//           return { ...prev, seconds: seconds - 1 };
-//         } else if (minutes > 0) {
-//           return { ...prev, minutes: minutes - 1, seconds: 59 };
-//         } else if (hours > 0) {
-//           return { ...prev, hours: hours - 1, minutes: 59, seconds: 59 };
-//         } else if (days > 0) {
-//           return { ...prev, days: days - 1, hours: 23, minutes: 59, seconds: 59 };
-//         } else {
-//           clearInterval(timer);
-//           return prev;
-//         }
-//       });
+//       calculateTimeLeft();
 //     }, 1000);
 
 //     return () => clearInterval(timer);
-//   }, []);
+//   }, [endDate]);
 
 //   // Handle form submission
 //   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 //     e.preventDefault();
-//     const formdata = new FormData()
-//     formdata.append("email", email)
+//     const formdata = new FormData();
+//     formdata.append("email", email);
 //     setLoading(true);
 //     const res = await sendMail(formdata);
 //     if (res.success) {
 //       setSubmitted(true);
 //       setEmail("");
 //       setLoading(false);
-//     }else{
-//       console.log(res?.error)
+//     } else {
+//       // console.log(res?.error);
 //     }
 //   };
 
@@ -696,7 +751,7 @@ export default function Home() {
 //                             value={email}
 //                             onChange={(e) => setEmail(e.target.value)}
 //                             required
-//                             className="flex-1 border-2 border-[#333D79] max-md:min-h-10 min-h-12"
+//                             className="flex-1 pt-0 border-2 border-[#333D79] max-md:min-h-10 min-h-12"
 //                           />
 //                           <Button
 //                             type="submit"
@@ -706,7 +761,7 @@ export default function Home() {
 //                                 "linear-gradient(to right, #333D79, #5D6CB3)",
 //                             }}
 //                           >
-//                             { loading ? "Sending..." : "Notify Me" }
+//                             {loading ? "Sending..." : "Notify Me"}
 //                           </Button>
 //                         </div>
 //                       </form>
@@ -900,25 +955,43 @@ export default function Home() {
 
 //               <div className="flex flex-col items-center md:items-end">
 //                 <div className="flex space-x-4 mb-4">
-//                   {[Instagram, Twitter, Facebook].map((Icon, i) => (
-//                     <a
-//                       key={i}
-//                       href="#"
-//                       className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors"
-//                     >
-//                       <Icon className="h-5 w-5 text-white" />
-//                       <span className="sr-only">Social media</span>
-//                     </a>
-//                   ))}
+//                   {[FaFacebookSquare, RiInstagramFill, AiFillTikTok].map(
+//                     (Icon, i) => (
+//                       <Link
+//                         key={i}
+//                         href={
+//                           i === 0
+//                             ? "https://www.facebook.com/share/1ENz8QFV3x/"
+//                             : i === 1
+//                             ? "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=xkjjdjr"
+//                             : i === 2
+//                             ? "https://www.tiktok.com/@picknpayz?_t=ZS-8uhB7YQAwzN&_r=1"
+//                             : ""
+//                         }
+//                         className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors"
+//                       >
+//                         <Icon className="h-5 w-5 text-white" />
+//                         <span className="sr-only">Social media</span>
+//                       </Link>
+//                     )
+//                   )}
 //                 </div>
-//                 <div className="flex items-center text-white">
-//                   <Mail className="h-5 w-5 mr-2" />
-//                   <a
-//                     href="mailto:picknpayz.pk@gmail.com"
-//                     className="hover:underline"
-//                   >
-//                     picknpayz.pk@gmail.com
-//                   </a>
+//                 <div className="flex flex-col items-start gap-2">
+//                   <div className="flex items-center text-white">
+//                     <Mail className="h-5 w-5 mr-2" />
+//                     <a
+//                       href="mailto:picknpayz.pk@gmail.com"
+//                       className="hover:underline"
+//                     >
+//                       picknpayz.pk@gmail.com
+//                     </a>
+//                   </div>
+//                   <div className="flex items-center text-white">
+//                     <FaWhatsapp className="h-5 w-5 mr-2" />
+//                     <a href="tel:+923128091650" className="hover:underline">
+//                       0312-8091650
+//                     </a>
+//                   </div>
 //                 </div>
 //               </div>
 //             </div>

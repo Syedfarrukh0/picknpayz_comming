@@ -1,4 +1,4 @@
-'use client'; // Mark this as a Client Component
+"use client"; // Mark this as a Client Component
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -31,7 +31,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>
-          🛒 PicknPayz - Best Online Shopping Store in Pakistan | Fast Delivery & Great Deals
+          🛒 PicknPayz - Best Online Shopping Store in Pakistan | Fast Delivery
+          & Great Deals
         </title>
         <meta
           name="description"
@@ -46,17 +47,6 @@ export default function RootLayout({
     </html>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // 'use client'; // Mark this as a Client Component
 
@@ -104,19 +94,6 @@ export default function RootLayout({
 //     </html>
 //   );
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
