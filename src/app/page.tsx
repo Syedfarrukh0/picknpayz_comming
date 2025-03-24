@@ -36,7 +36,7 @@ export default function Home() {
 
   // Define start and end dates
   const startDate = new Date("2023-10-01T00:00:00"); // Replace with your start date
-  const endDate = new Date("2025-03-31T23:59:59"); // Replace with your end date
+  const endDate = new Date("2025-04-11T23:59:59"); // Replace with your end date
 
   // Generate random icon styles only on the client side
   useEffect(() => {
